@@ -15,7 +15,7 @@ export default function AdminHome() {
       try {
         const token = localStorage.getItem("token");
         if (!token) {
-          router.push("/login");
+          router.push("/auth/login");
           return;
         }
 
@@ -35,7 +35,7 @@ export default function AdminHome() {
         fetchData(token);
       } catch (err) {
         console.error("Lỗi xác thực:", err);
-        router.push("/login");
+        router.push("/auth/login");
       }
     };
 
