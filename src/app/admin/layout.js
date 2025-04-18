@@ -26,7 +26,6 @@ import DashboardIcon from "@mui/icons-material/Dashboard";
 import CategoryIcon from "@mui/icons-material/Category";
 import InventoryIcon from "@mui/icons-material/Inventory";
 import PeopleIcon from "@mui/icons-material/People";
-import LocalShippingIcon from "@mui/icons-material/LocalShipping";
 import PaymentIcon from "@mui/icons-material/Payment";
 import ContactsIcon from "@mui/icons-material/Contacts";
 
@@ -38,7 +37,6 @@ const menuItems = [
   { to: "/admin/categories", label: "Danh Mục", icon: <CategoryIcon /> },
   { to: "/admin/orders", label: "Đơn Hàng", icon: <PaymentIcon /> },
   { to: "/admin/users", label: "Người Dùng", icon: <PeopleIcon /> },
-  { to: "/admin/shipping", label: "Vận Chuyển", icon: <LocalShippingIcon /> },
   { to: "/admin/contact", label: "Liên Hệ", icon: <ContactsIcon /> },
 ];
 
