@@ -32,7 +32,6 @@ export default function AdminHome() {
     },
     { label: "Quản lý Đơn Hàng", href: "/admin/orders", color: "success" },
     { label: "Quản lý Người Dùng", href: "/admin/users", color: "warning" },
-    { label: "Quản lý Vận Chuyển", href: "/admin/shipping", color: "info" },
     { label: "Quản lý Liên Hệ", href: "/admin/contact", color: "error" },
   ];
 
