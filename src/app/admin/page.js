@@ -9,54 +9,19 @@ import { useRouter } from "next/navigation";
 export default function AdminHome() {
   const router = useRouter();
 
-  // Kiểm tra quyền admin
   useEffect(() => {
-    const checkAdmin = async () => {
+    const fetchData = async () => {
       try {
-        const token = localStorage.getItem("token");
-        if (!token) {
-          router.push("/auth/login");
-          return;
-        }
-
-        const res = await axios.get("/user/profile", {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
-
-        if (res.data.user.role !== "admin") {
-          alert("Bạn không có quyền truy cập trang này!");
-          router.push("/"); // Chuyển hướng về home
-          return;
-        }
-
-        // Nếu là admin thì mới gọi dữ liệu
-        fetchData(token);
-      } catch (err) {
-        console.error("Lỗi xác thực:", err);
-        router.push("/auth/login");
-      }
-    };
-
-    const fetchData = async (token) => {
-      try {
-        await axios.get("/api/products", {
-          headers: { Authorization: `Bearer ${token}` },
-        });
-        await axios.get("/api/orders", {
-          headers: { Authorization: `Bearer ${token}` },
-        });
-        await axios.get("/api/users", {
-          headers: { Authorization: `Bearer ${token}` },
-        });
+        await axios.get("/api/products");
+        await axios.get("/api/orders");
+        await axios.get("/api/users");
       } catch (err) {
         console.error("Lỗi khi lấy dữ liệu:", err);
       }
     };
 
-    checkAdmin();
-  }, [router]);
+    fetchData();
+  }, []);
 
   const sections = [
     { label: "Quản lý Sản Phẩm", href: "/admin/products", color: "primary" },
