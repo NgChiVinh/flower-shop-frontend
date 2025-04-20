@@ -1,5 +1,3 @@
-"use client";
-
 import { useEffect } from "react";
 import axios from "axios";
 import { Box, Grid, Typography, Paper } from "@mui/material";
@@ -26,7 +24,7 @@ export default function AdminHome() {
     {
       label: "Quản lý Sản Phẩm",
       href: "/admin/products",
-      image: "/images/product.png", // ảnh minh họa
+      image: "/images/product.png",
     },
     {
       label: "Quản lý Danh Mục",
@@ -70,16 +68,24 @@ export default function AdminHome() {
               }}
               onClick={() => router.push(section.href)}
             >
-              <img
-                src={section.image}
-                alt={section.label}
-                style={{
-                  width: "120px",
-                  height: "120px",
-                  objectFit: "contain",
-                  marginBottom: "1rem",
+              <Box
+                sx={{
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  mb: 2,
                 }}
-              />
+              >
+                <img
+                  src={section.image}
+                  alt={section.label}
+                  style={{
+                    width: "150px", // tăng kích thước hình
+                    height: "150px",
+                    objectFit: "contain",
+                  }}
+                />
+              </Box>
               <Typography variant="h6">{section.label}</Typography>
             </Paper>
           </Grid>
